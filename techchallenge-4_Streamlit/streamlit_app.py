@@ -5,21 +5,21 @@ st.set_page_config(layout="wide")
 
 st.sidebar.info(
     """
-    - Web App URL: <https://streamlit.geemap.org>
-    - GitHub repository: <https://github.com/giswqs/streamlit-geospatial>
+    - Web App URL: <https://techchallenge4-alexandresuehiro-zi9ej5yn9lgqhjfqgqw3mq.streamlit.app/>
+    - GitHub repository: <https://github.com/alexandresuehiro/Postgrad_FIAP_3DTAT/tree/main/techchallenge-4_Streamlit>
     """
 )
 
 st.sidebar.title("Contact")
 st.sidebar.info(
     """
-    Qiusheng Wu: <https://wetlands.io>
-    [GitHub](https://github.com/giswqs) | [Twitter](https://twitter.com/giswqs) | [YouTube](https://www.youtube.com/c/QiushengWu) | [LinkedIn](https://www.linkedin.com/in/qiushengwu)
+    Alexandre Suehiro: <https://wetlands.io>
+    [GitHub](https://github.com/alexandresuehiro) | [Twitter](https://twitter.com/asuehiro) | [LinkedIn](https://www.linkedin.com/in/alexandre-suehiro-de-paula-e-silva-b3096218/)
     """
 )
 
 # Customize page title
-st.title("Streamlit for Geospatial Applications")
+st.title("Streamlit for Oil Pricing")
 
 st.markdown(
     """
