@@ -102,7 +102,7 @@ tzlocal==5.2
 urllib3==2.2.0
 validators==0.22.0
 watchdog==4.0.0
-Werkzeug==3.0.2
+Werkzeug==3.0.3
 wrapt==1.14.1
 zipp==3.17.0
 # git+https://github.com/giswqs/leafmap
