@@ -105,6 +105,33 @@ watchdog==4.0.0
 Werkzeug==3.0.2
 wrapt==1.14.1
 zipp==3.17.0
+chardet
+chardet
+csv
+datetime
+io
+joblib
+math
+matplotlib
+matplotlib
+matplotlib
+numpy
+openpyxl
+os
+pandas
+pickle
+plotly
+prophet
+re
+requests
+seaborn
+seaborn
+sklearn
+statsmodels
+streamlit
+tabulate
+warnings
+zipfile
 # git+https://github.com/giswqs/leafmap
 # git+https://github.com/giswqs/geemap
 
