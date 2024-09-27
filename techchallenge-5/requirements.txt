@@ -78,7 +78,7 @@ oauthlib==3.2.2
 opt-einsum==3.3.0
 optree==0.11.0
 packaging==23.2
-pandas==2.2.0
+pandas==2.2.3
 pillow==10.2.0
 plotly==5.20.0
 pmdarima
@@ -98,7 +98,6 @@ requests==2.31.0
 rich==13.7.0
 rpds-py==0.17.1
 rsa==4.9
-## scikit-learn==1.2.2
 path==17.0.0
 scipy==1.12.0
 six==1.16.0
@@ -121,7 +120,6 @@ urllib3==2.2.0
 utils==1.0.2
 validators==0.22.0
 watchdog==4.0.0
-wrangle==0.7.6
 werkzeug==3.0.2
 wrapt==1.14.1
 zipp==3.17.0

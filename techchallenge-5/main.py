@@ -158,7 +158,7 @@ def get_file_type(file_path):
 def uploadfile_data_cleaning(df, filename):
     #filename = "dataset.csv"
 
-    filetype = get_file_type(filename)
+#    filetype = get_file_type(filename)
     
 #    dir = path.Path(__file__).abspath()
 #    sys.append.path(dir.parent.parent)
@@ -231,17 +231,40 @@ st.title("Success Prediction App")
 uploaded_file = st.file_uploader("Upload your CSV file", type=["csv"])
 #filename = "dataset2.csv"
 
-
+df = pd.DataFrame()
 if uploaded_file is not None:
     #df = pd.read_csv(uploaded_file)
     df = pd.read_csv(uploaded_file, sep=';', encoding='UTF-8-SIG') #, engine='python')
     df = uploadfile_data_cleaning(df, uploaded_file)
 
+# Define your patterns
+pattern1 = r'^IPP.*NUM'  # Pattern 1
+pattern2 = r'^IEG.*_NUM'   # Pattern 2
+pattern3 = r'^I.*_NUM'       # Pattern 3
+
+# Combine patterns using the '|' operator
+combined_pattern = f"({pattern1})|({pattern2})|({pattern3})"  # Using f-string for readability
+
+# Filter columns using the combined pattern
+features = df.filter(regex=combined_pattern).columns.tolist()
+
+pattern1 = r'^PONTO.*STR'  # Pattern 1
+pattern2 = r'^NIVEL.*_STR'   # Pattern 2
+pattern3 = r'^IND.*'       # Pattern 3
+
+# Combine patterns using the '|' operator
+combined_pattern = f"({pattern1})|({pattern2})|({pattern3})"  # Using f-string for readability
+
+# Filter columns using the combined pattern
+target = df.filter(regex=combined_pattern).columns.tolist()
+
+
+
 # Feature and target selection
 st.sidebar.header("Select Features and Target")
-all_columns = df.columns.tolist()
+all_columns = features
 features = st.sidebar.multiselect("Features", all_columns)
-target = st.sidebar.selectbox("Target", all_columns)
+target = st.sidebar.selectbox("Target", target)
 
 # Model selection
 st.sidebar.header("Select Model")
