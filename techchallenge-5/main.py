@@ -160,8 +160,8 @@ def get_file_type(file_path):
     return 'unknown'
 
 
-def uploadfile_data_cleaning():
-    filename = "dataset.csv"
+def uploadfile_data_cleaning(filename):
+    #filename = "dataset.csv"
 
     filetype = get_file_type(filename)
     
@@ -239,8 +239,8 @@ st.title("Success Prediction App")
 
 # File uploader
 # uploaded_file = st.file_uploader("Upload your CSV file", type=["csv"])
-
-df = uploadfile_data_cleaning()
+filename = "./dataset.csv"
+df = uploadfile_data_cleaning(filename)
 
 #if uploaded_file is not None:
 #    df = pd.read_csv(uploaded_file)
