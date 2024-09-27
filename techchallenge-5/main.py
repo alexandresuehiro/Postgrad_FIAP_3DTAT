@@ -239,7 +239,7 @@ st.title("Success Prediction App")
 
 # File uploader
 # uploaded_file = st.file_uploader("Upload your CSV file", type=["csv"])
-filename = "./dataset.csv"
+filename = "dataset.csv"
 df = uploadfile_data_cleaning(filename)
 
 #if uploaded_file is not None:
