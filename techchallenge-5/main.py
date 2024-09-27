@@ -13,7 +13,7 @@ import chardet
 from tabulate import tabulate
 import sys
 import path
-from utils import wrangle
+import utils
 import pickle
 
 def predict_success(df, features, target, model_type, test_size=0.2, random_state=42):
@@ -161,15 +161,15 @@ def get_file_type(file_path):
 
 
 def uploadfile_data_cleaning():
-    filename = "data/dataset.csv"
+    filename = "dataset.csv"
 
     filetype = get_file_type(filename)
     
-    dir = path.Path(__file__).abspath()
-    sys.append.path(dir.parent.parent)
+#    dir = path.Path(__file__).abspath()
+#    sys.append.path(dir.parent.parent)
 
 # load model
-    filename = './data/dataset.csv'
+#    filename = './data/dataset.csv'
 #    result = chardet.detect(filename)
 #    print(result)
 
