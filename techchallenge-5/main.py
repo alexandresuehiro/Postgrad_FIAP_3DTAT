@@ -7,11 +7,9 @@ from sklearn.metrics import accuracy_score, mean_squared_error
 import streamlit as st
 import requests as r
 import csv
-
-import chardet
+import os
 from tabulate import tabulate
-from pathlib import Path
-import pathlib
+
 
 def predict_success(df, features, target, model_type, test_size=0.2, random_state=42):
   """
@@ -230,21 +228,14 @@ def uploadfile_data_cleaning(df, filename):
 st.title("Success Prediction App")
 
 # File uploader
-# uploaded_file = st.file_uploader("Upload your CSV file", type=["csv"])
-filename = "dataset.csv"
+uploaded_file = st.file_uploader("Upload your CSV file", type=["csv"])
+#filename = "dataset2.csv"
 
-import glob
-glob.glob('./*.csv')
 
-p = pathlib.Path(filename)
-p.absolute()
-print(p)
-df = pd.read_csv(p, sep=';', encoding='UTF-8-SIG') #, engine='python')
-
-df = uploadfile_data_cleaning(df, filename)
-
-#if uploaded_file is not None:
-#    df = pd.read_csv(uploaded_file)
+if uploaded_file is not None:
+    #df = pd.read_csv(uploaded_file)
+    df = pd.read_csv(uploaded_file, sep=';', encoding='UTF-8-SIG') #, engine='python')
+    df = uploadfile_data_cleaning(df, uploaded_file)
 
 # Feature and target selection
 st.sidebar.header("Select Features and Target")
