@@ -5,11 +5,12 @@ from sklearn.tree import DecisionTreeClassifier, DecisionTreeRegressor
 from sklearn.ensemble import RandomForestClassifier, RandomForestRegressor
 from sklearn.metrics import accuracy_score, mean_squared_error
 import streamlit as st
-import requests
+import requests as r
 import csv
 import os
 import zipfile
 import chardet
+from tabulate import tabulate
 
 
 def predict_success(df, features, target, model_type, test_size=0.2, random_state=42):
@@ -147,20 +148,18 @@ def get_file_type(file_path):
 
 
 def uploadfile_data_cleaning():
+    filename = 'data/dataset.csv'
 
-    filetype = get_file_type('data/PEDE_PASSOS_DATASET_FIAP_v8.csv')
+    filetype = get_file_type(filename)
 
-    result = chardet.detect(r.content)
-    print(result)
+#    result = chardet.detect(filename)
+#    print(result)
 
     if filetype == 'csv':
-        df = pd.read_csv(io.BytesIO(r.content), sep=';', encoding=result.get('encoding'), engine='python')
+        df = pd.read_csv(filename, sep=';', encoding='UTF-8-SIG', engine='python')
     elif filetype == 'txt':
-        df = pd.read_csv(io.BytesIO(r.content), sep='\t', encoding=result.get('encoding'), engine='python')
-    elif filetype == 'zip':
-        z = zipfile.ZipFile(io.BytesIO(r.content))
-        zipped_filelist = z.namelist()
-        print(zipped_filelist)
+        df = pd.read_csv(filename, sep='\t', encoding='UTF-8-SIG', engine='python')
+
 
 ## Limpeza de Dados
 
