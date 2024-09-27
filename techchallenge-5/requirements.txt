@@ -102,6 +102,7 @@ smmap==5.0.1
 st-pages==0.4.5
 stanio==0.5.0
 statsmodels
+streamlit==1.37.0
 tenacity==8.2.3
 termcolor==2.4.0
 threadpoolctl==3.3.0
