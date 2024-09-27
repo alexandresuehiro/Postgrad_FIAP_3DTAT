@@ -7,11 +7,11 @@ from sklearn.metrics import accuracy_score, mean_squared_error
 import streamlit as st
 import requests as r
 import csv
-import os
-import zipfile
+
 import chardet
 from tabulate import tabulate
-
+from pathlib import Path
+import pathlib
 
 def predict_success(df, features, target, model_type, test_size=0.2, random_state=42):
   """
@@ -233,7 +233,13 @@ st.title("Success Prediction App")
 # uploaded_file = st.file_uploader("Upload your CSV file", type=["csv"])
 filename = "dataset.csv"
 
-df = pd.read_csv("/workspaces/Postgrad_FIAP_3DTAT/techchallenge-5/dataset.csv", sep=';', encoding='UTF-8-SIG') #, engine='python')
+import glob
+glob.glob('./*.csv')
+
+p = pathlib.Path(filename)
+p.absolute()
+print(p)
+df = pd.read_csv(p, sep=';', encoding='UTF-8-SIG') #, engine='python')
 
 df = uploadfile_data_cleaning(df, filename)
 
