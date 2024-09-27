@@ -29,6 +29,9 @@ def predict_success(df, features, target, model_type, test_size=0.2, random_stat
     A dictionary containing the trained model, accuracy/MSE score, predictions,
     and a DataFrame with 'NOME' and index for successful and unsuccessful predictions.
   """
+
+  threshold = 0.1  # Threshold for regression predictions
+
   # 1. Drop rows with nulls or empty strings in features OR target
   df_cleaned = df.dropna(subset=features + [target])  # Drop if missing in any feature or target
   df_cleaned = df_cleaned[~df_cleaned[features + [target]].eq('').any(axis=1)]  # Drop if empty string in any feature or target
@@ -38,10 +41,16 @@ def predict_success(df, features, target, model_type, test_size=0.2, random_stat
   # Check if there's any data left after filtering
   if df_cleaned.empty:
         return "Not enough data with complete feature and target values for prediction."
+  
+
+  df_cleaned[target] = df_cleaned[target].str.replace('Não', '0')
+  df_cleaned[target] = df_cleaned[target].str.replace('Sim', '1').astype(int)
 
   # 2. Split data into training and testing sets
   X = df_cleaned[features]
   y = df_cleaned[target]
+
+  
   X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=test_size, random_state=random_state)
     
   # Choose model based on model_type: 
@@ -66,6 +75,7 @@ def predict_success(df, features, target, model_type, test_size=0.2, random_stat
   elif model_type == 'Decision Tree - Regression':
     models = {
         'Decision Tree - Regression': DecisionTreeRegressor(random_state=random_state)
+  
     }
 
   elif model_type == 'Random Forest - Regression':
