@@ -11,7 +11,8 @@ import os
 import zipfile
 import chardet
 from tabulate import tabulate
-
+import sys
+import path
 
 def predict_success(df, features, target, model_type, test_size=0.2, random_state=42):
   """
@@ -161,14 +162,19 @@ def uploadfile_data_cleaning():
     filename = "data/dataset.csv"
 
     filetype = get_file_type(filename)
+    
+    dir = path.Path(__file__).abspath()
+    sys.append.path(dir.parent.parent)
 
+# load model
+    filename = './data/dataset.csv'
 #    result = chardet.detect(filename)
 #    print(result)
 
     if filetype == 'csv':
-        df = pd.read_csv("data/dataset.csv", sep=';', encoding='UTF-8-SIG', engine='python')
+        df = pd.read_csv(filename, sep=';', encoding='UTF-8-SIG', engine='python')
     elif filetype == 'txt':
-        df = pd.read_csv("data/dataset.csv", sep='\t', encoding='UTF-8-SIG', engine='python')
+        df = pd.read_csv(filename, sep='\t', encoding='UTF-8-SIG', engine='python')
 
 
 ## Limpeza de Dados
