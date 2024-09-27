@@ -11,10 +11,7 @@ import os
 import zipfile
 import chardet
 from tabulate import tabulate
-import sys
-import path
-import utils
-import pickle
+
 
 def predict_success(df, features, target, model_type, test_size=0.2, random_state=42):
   """
