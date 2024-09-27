@@ -8,6 +8,7 @@ import streamlit as st
 import requests
 import os
 import zipfile
+import chardet
 
 def predict_success(df, features, target, model_type, test_size=0.2, random_state=42):
   """
@@ -220,6 +221,7 @@ st.title("Success Prediction App")
 # File uploader
 # uploaded_file = st.file_uploader("Upload your CSV file", type=["csv"])
 
+df = uploadfile_data_cleaning()
 
 #if uploaded_file is not None:
 #    df = pd.read_csv(uploaded_file)
