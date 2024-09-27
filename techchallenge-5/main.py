@@ -160,7 +160,7 @@ def get_file_type(file_path):
     return 'unknown'
 
 
-def uploadfile_data_cleaning(filename):
+def uploadfile_data_cleaning(df, filename):
     #filename = "dataset.csv"
 
     filetype = get_file_type(filename)
@@ -172,11 +172,6 @@ def uploadfile_data_cleaning(filename):
 #    filename = './data/dataset.csv'
 #    result = chardet.detect(filename)
 #    print(result)
-
-    if filetype == 'csv':
-        df = pd.read_csv(filename, sep=';', encoding='UTF-8-SIG', engine='python')
-    elif filetype == 'txt':
-        df = pd.read_csv(filename, sep='\t', encoding='UTF-8-SIG', engine='python')
 
 
 ## Limpeza de Dados
@@ -240,7 +235,10 @@ st.title("Success Prediction App")
 # File uploader
 # uploaded_file = st.file_uploader("Upload your CSV file", type=["csv"])
 filename = "dataset.csv"
-df = uploadfile_data_cleaning(filename)
+
+df = pd.read_csv("/workspaces/Postgrad_FIAP_3DTAT/techchallenge-5/dataset.csv", sep=';', encoding='UTF-8-SIG') #, engine='python')
+
+df = uploadfile_data_cleaning(df, filename)
 
 #if uploaded_file is not None:
 #    df = pd.read_csv(uploaded_file)
