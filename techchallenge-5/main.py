@@ -7,6 +7,7 @@ from sklearn.metrics import accuracy_score, mean_squared_error
 import streamlit as st
 import requests
 import os
+import zipfile
 
 def predict_success(df, features, target, model_type, test_size=0.2, random_state=42):
   """
