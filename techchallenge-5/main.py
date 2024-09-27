@@ -5,7 +5,6 @@ from sklearn.tree import DecisionTreeClassifier, DecisionTreeRegressor
 from sklearn.ensemble import RandomForestClassifier, RandomForestRegressor
 from sklearn.metrics import accuracy_score, mean_squared_error
 import streamlit as st
-import requests as r
 import csv
 import os
 from tabulate import tabulate
