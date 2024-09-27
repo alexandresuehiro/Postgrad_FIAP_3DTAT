@@ -228,8 +228,8 @@ def uploadfile_data_cleaning(df, filename):
 st.title("Success Prediction App")
 
 # File uploader
-uploaded_file = st.file_uploader("Upload your CSV file", type=["csv"])
-#filename = "dataset2.csv"
+#uploaded_file = st.file_uploader("Upload your CSV file", type=["csv"])
+uploaded_file = "dataset2.csv"
 
 df = pd.DataFrame()
 if uploaded_file is not None:
